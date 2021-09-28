@@ -4,6 +4,7 @@
 //                 Ali Afroozeh <https://github.com/afroozeh>
 //                 Pedro Gámez <https://github.com/snakedrak>
 //                 Akuukis <https://github.com/Akuukis>
+//                 Victor Duarte <https://github.com/zvictor>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 // eventsource uses DOM dependencies which are absent in a browserless environment like node.js.
@@ -28,9 +29,9 @@ declare class EventSource {
   onopen: (evt: MessageEvent) => any;
   onmessage: (evt: MessageEvent) => any;
   onerror: (evt: MessageEvent) => any;
-  addEventListener(type: string, listener: EventListener): void;
+  addEventListener(type: string, listener: (evt: MessageEvent) => any): void;
   dispatchEvent(evt: Event): boolean;
-  removeEventListener(type: string, listener?: EventListener): void;
+  removeEventListener(type: string, listener?: (evt: MessageEvent) => any): void;
   close(): void;
 }
 
